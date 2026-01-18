@@ -1,5 +1,6 @@
-    package com.example.motion
+package com.example.motion.feature.velocity
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,6 +17,11 @@ import com.example.motion.ui.theme.MotionTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // In MainActivity.kt, inside onCreate()
+        val sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        val sensorService = SensorService(sensorManager)
+        val velocityViewModel = ViewVelocity(sensorService)
+
         enableEdgeToEdge()
         setContent {
             MotionTheme {
