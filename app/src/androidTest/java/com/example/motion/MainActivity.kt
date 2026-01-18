@@ -12,15 +12,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.motion.SensorService
 import com.example.motion.ui.theme.MotionTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // In MainActivity.kt, inside onCreate()
-        val sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        val sensorService = SensorService(sensorManager)
-        val velocityViewModel = ViewVelocity(sensorService)
 
         enableEdgeToEdge()
         setContent {
